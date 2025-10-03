@@ -35,13 +35,21 @@ def init_db():
     conn.commit() # save changes
     return conn
 
-def ensure_seed_user(conn):
-    cur = conn.cursor()
-    cur.execute("SELECT COUNT(*) FROM Users")
-    count = cur.fetchone()[0]
-    if count == 0:
-        cur.execute(
-            "INSERT INTO Users (user_name, usd_balance, is_root) VALUES (?, ?, ?)",
-            ("default_user", INITIAL_BALANCE, 1)
-        )
-        conn.commit()
+# def ensure_seed_user(conn):
+#     cur = conn.cursor()
+#     cur.execute("SELECT COUNT(*) FROM Users")
+#     count = cur.fetchone()[0]
+#     if count == 0:
+#         cur.execute(
+#             "INSERT INTO Users (user_name, usd_balance, is_root) VALUES (?, ?, ?)",
+#             ("default_user", INITIAL_BALANCE, 1)
+#         )
+#         conn.commit()
+
+# def get_balance(conn, owner_id):
+
+# def list_cards(conn, owner_id):
+
+# def buy_card(conn, name, card_type, rarity, price, count, owner_id):
+
+# def sell_card(conn, name, count, price, owner_id):
