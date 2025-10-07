@@ -104,22 +104,25 @@ def err_invalid(msg: str) -> str:
 
 def render_list(owner_id: int, rows: List[Dict[str, Any]]) -> str:
     """
-    Produce a human-friendly table for LIST results.
+    Produce a human-friendly table for LIST results (no internal blank lines).
     """
     lines = []
     lines.append(f"The list of records in the Pokémon cards table for current user, user {owner_id}:")
-    lines.append("")
     header = f"{'ID':<4} {'Card Name':<12} {'Type':<10} {'Rarity':<10} {'Count':<5} {'OwnerID':<7}"
     lines.append(header)
-    for r in rows:
-        lines.append(
-            f"{int(r['ID']):<4} "
-            f"{str(r['card_name']):<12} "
-            f"{str(r['card_type']):<10} "
-            f"{str(r['rarity']):<10} "
-            f"{int(r['count']):<5} "
-            f"{int(r['owner_id']):<7}"
-        )
+
+    if not rows:
+        lines.append("(no records)")
+    else:
+        for r in rows:
+            lines.append(
+                f"{int(r['ID']):<4} "
+                f"{str(r['card_name']):<12} "
+                f"{str(r['card_type']):<10} "
+                f"{str(r['rarity']):<10} "
+                f"{int(r['count']):<5} "
+                f"{int(r['owner_id']):<7}"
+            )
     return "\n".join(lines)
 
 def render_balance(owner_display: str, balance: float) -> str:

@@ -2,12 +2,12 @@ import socket
 import sys
 from typing import Tuple
 
-import protocol
+from . import protocol
 from constants import (
     SERVER_HOST, SERVER_PORT,
     CMD_BUY, CMD_SELL, CMD_LIST, CMD_BALANCE, CMD_QUIT, CMD_SHUTDOWN,
 )
-from server.db import init_db, buy, sell, list_user_cards, get_user_balance
+from .db import init_db, buy, sell, list_user_cards, get_user_balance
 
 #shared encoding; fall back if not present in constants
 try:
