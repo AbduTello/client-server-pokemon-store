@@ -90,16 +90,14 @@ def parse_line(line: str) -> Tuple[str, Dict[str, Any]]:
 # Wire helpers (strings only)
 
 def ok(body: str = "") -> str:
-    """Return a success response terminated with a newline (and body if provided)."""
-    return RESP_OK + "\n" + (body + "\n" if body else "")
+    # status + optional body + blank line terminator
+    return RESP_OK + "\n" + (body + "\n" if body else "") + "\n"
 
 def err_format(msg: str) -> str:
-    """403 message format error + short detail."""
-    return RESP_FORMAT_ERR + "\n" + (msg + "\n" if msg else "")
+    return RESP_FORMAT_ERR + "\n" + (msg + "\n" if msg else "") + "\n"
 
 def err_invalid(msg: str) -> str:
-    """400 invalid command + short detail."""
-    return RESP_INVALID + "\n" + (msg + "\n" if msg else "")
+    return RESP_INVALID + "\n" + (msg + "\n" if msg else "") + "\n"
 
 
 # Rendering helpers for server replies
