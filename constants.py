@@ -19,3 +19,7 @@ CMD_SHUTDOWN = "SHUTDOWN"
 RESP_OK         = "200 OK"
 RESP_INVALID    = "400 invalid command"
 RESP_FORMAT_ERR = "403 message format error"
+
+#ENCODING 
+
+ـENC = "utf-8"
