@@ -22,7 +22,7 @@ BALANCE 1
 BUY Pikachu Electric Common 19.99 2 1
 SELL Pikachu 1 34.99 1
 QUIT
-# restart client
+ restart client
 SHUTDOWN
 
 Protocol Notes
